@@ -23,8 +23,6 @@ import { DeviceDetectorService } from 'ngx-device-detector';
     // public valorEnvio = (this.valorNeto) + Number(this.valorIvaResult);
     public valorEnvio = 2800;
 
-
-
     constructor(
       private readonly http: HttpClient,
       private deviceService: DeviceDetectorService
