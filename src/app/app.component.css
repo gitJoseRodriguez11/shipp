@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+.toolbar {
+    height:10%;
+    background-color: #e94d1a;
+}
+
+.mat-toolbar{
+    background-color: #e94d1a;
+    color: white;
+  }
+  .mat-button{
+     color: white;
+  }
+  .spacer{
+    flex: 1 1 auto;
+  }
+
+.biggerbutton {
+    width:  50px!important;
+    height: 50px!important;
+    font-size: 10px!important;
+}
+
+.toolBarButton, .drawerButton {
+    padding: 20px;
+    color:#fff !important
+}
+
+.container {
+    height: 90%;
+    
+}
+
+.drawer {
+    background: linear-gradient(#e94d1a, #e94d1a, white);
+    width: 200px; 
+}
+
+.burger {
+    color: white;
+}
+
+
+
+@media all and (max-width: 800px) {
+
+    .toolBarButton {
+        display: none;
+    }
+
+    .toolbar {
+        height:5%;
+    }
+
+    .container {
+        height: 95%;
+    }
+
+    .butonenvio{
+      font-size: xx-small;
+      width: 76px !important;
+      border-radius: 0px !important;
+    }
+
+    .hola{
+      font-size: xx-small;
+    }
+
+    .avatar {
+      background-image: url("../assets/images/perfil.png");
+      background-size: cover;
+      background-color: white !important;
+      height: 28px !important;
+      width: 28px !important;
+      border-radius: 50% !important;
+      flex-shrink: 0 !important;
+      margin-bottom: 0px !important;
+      object-fit: cover !important;
+    }
+ 
+
+}
+
+.sidebar i {
+    color: #fff;
+    height: 60px;
+    min-width: 50px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 60px;
+  }
+
+.sidebar .nav-list {
+    margin-top: 20px;
+    height: 100%;
+    margin-left: -32px;
+  }
+
+  .sidebar li {
+    position: relative;
+    margin: 8px 0;
+    list-style: none;
+  }
+  .sidebar li:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .sidebar.open li .tooltip {
+    display: none;
+  }
+
+  li .tooltip {
+    display: none;
+  }
+
+  .sidebar li a {
+    display: flex;
+    height: 100%;
+    width: 95%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: #392155;
+  }
+  .sidebar li a:hover {
+    background: #fff;
+  }
+  .sidebar li a .links_name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+  }
+
+  .sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+  transition: all 0.5s ease;
+  color: #11101d;
+}
+.sidebar li i {
+  height: 40px;
+  line-height: 50px;
+  font-size: 14px;
+  border-radius: 12px;
+}
+.sidebar li.profile {
+  position: fixed;
+  height: 60px;
+  width: 78px;
+  left: 0;
+  bottom: -8px;
+  padding: 10px 14px;
+  background: #392155;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+.sidebar li .profile-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .sidebar li img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
+  .sidebar li.profile .name,
+  .sidebar li.profile .job {
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .sidebar li.profile .job {
+    font-size: 12px;
+  }
+  .sidebar .profile #log_out {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: #e94d1a;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 0px;
+    transition: all 0.5s ease;
+  }
+
+  .menutext{
+    color: white !important;
+  }
+
+  .butonenvio{
+    border-radius: 15px;
+    background: #392155;
+    width: 126px;
+    text-align: center;
+  }
+
+
+  .logo {
+    background-image: url("../assets/images/logo-shipp.png");
+    background-color: white !important;
+    margin-left: -17px;
+    background-size: cover;
+    /* width: 98px;
+    height: 98px */
+  }
+
+  .otrologo {
+    background-image: url("../assets/images/logo-shipp.png");
+    background-color: white !important;
+    margin-left: -17px;
+    background-size: cover;
+    width: 98px;
+    height: 98px 
+
+  }
+
+  .avatar {
+    background-image: url("../assets/images/perfil.png");
+    background-size: cover;
+    background-color: white !important;
+    height: 35px ;
+    width: 35px;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 0px !important;
+    object-fit: cover !important;
+  }
+
+ 
+  
+
+ 

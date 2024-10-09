@@ -1,0 +1,37 @@
+mat-card {
+    max-width: 500px;
+    margin: 2em auto;
+    text-align: center;
+  }
+
+  .full-width-input {
+    width: 100%;
+  }
+  .butonship{
+    background-color: #e94d1a;
+    color: white;
+  }
+  .sectionTwo{
+    margin-top: -40px;
+  }
+
+  .butonship{
+    background-color: #e94d1a;
+    color: white;
+  }
+  .mat-grid-list  {
+    margin-top: -30px;
+  }
+  
+  .tituloPanel {
+    margin-top: -13px;
+    padding-block: 11px;
+    color: #e94d1a;
+  }
+
+  .minuscula{
+    text-transform: lowercase;
+  }
+  
+  
+  

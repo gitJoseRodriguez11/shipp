@@ -1,0 +1,58 @@
+<ngx-spinner type="ball-beat"></ngx-spinner>
+
+<button mat-icon-button matDialogClose style="float: left" (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+</button>
+
+<h2 mat-dialog-title class="tex-color">{{data.name}}</h2>
+<div class="container">
+    <mat-dialog-content>
+
+            
+            <section>
+                <div class="example-label">{{pedido}}</div>
+                <div class="example-button-row">
+                  <div class="example-flex-container">
+                    <div class="example-button-container">
+                        <span class="tex-color">En Preparación</span>
+                        <button mat-fab aria-label="En Preparación" [disabled]="disabled1"  [ngClass]="{'red' : toggle, 'green': !toggle}" color="default">
+                            <i class="fa-solid fa-box-open fa-2x tex-color"></i>
+                                                        <!-- <mat-icon>box-open</mat-icon> -->
+                          </button>
+                    
+                    </div>
+                    <div class="example-button-container">
+                        <span class="tex-color">Retiro</span>
+                      <button mat-fab aria-label="Retiro" [disabled]="disabled2" [ngClass]="{'red' : toggle, 'green': !toggle}" color="default">
+                        <i class="fa-solid fa-boxes-packing fa-2x tex-color"></i>
+                      </button>
+                    </div>
+                    <div class="example-button-container">
+                        <span class="tex-color">En Tránsito</span>
+                        <button mat-fab  [disabled]="disabled3"  [ngClass]="{'red' : toggle, 'green': !toggle}" color="default">
+                            <i class="fa-solid fa-truck-fast fa-2x tex-color"></i>
+                      </button>
+                    </div>
+                    <div class="example-button-container">
+                        <span class="tex-color">Entregado</span>
+                        <button mat-fab  [disabled]="disabled4"  [ngClass]="{'red' : toggle, 'green': !toggle}" color="default">
+                            <i class="fa-solid fa-people-carry-box fa-2x tex-color"></i>
+                        </button>
+                      </div>
+                  </div>
+                </div>
+              </section>
+              <p>Origen {{comuna}}</p>
+              <p>Dirección {{direccion}}</p>
+              <p>Estado Pago {{estadoPago}}</p>
+              <p>Monto {{monto}}</p>
+
+              <button mat-fab extended *ngIf="booleanPorPagar" color="default" class="button-pagar" (click)="Pagar()">
+                Pagar
+            </button>
+ 
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button class="button-shipp" (click)="onNoClick()">Salir</button>
+    </mat-dialog-actions>
+</div>

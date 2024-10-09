@@ -1,0 +1,606 @@
+<ngx-spinner type="ball-beat"></ngx-spinner>
+
+<div class="grid-container">
+  <h4 class="mat-h1">Cuenta</h4>
+  <mat-tab-group>
+    <!-- DATOS PERSONALES -->
+    <mat-tab label="Datos personales">
+      <div class="grid-container">
+        <mat-grid-list cols="2" rowHeight="750px">
+          <!-- PRIMER MODULO -->
+          <mat-grid-tile colspan={{colspanOne}} rowspan=1>
+            <mat-card class="dashboard-card">
+              <mat-card-header>
+                <mat-card-title>
+                  <!-- <h4 class="colorTitulo">Editar datos personales.</h4> -->
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="dashboard-card-content">
+                <div class="colorTitulo">Editar datos personales.</div>
+                <form [formGroup]="formulario">
+                <!-- NOMBRE USUARIO -->
+                <mat-grid-list cols="4" rowHeight="100px">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Nombres *</mat-label>
+                      <input matInput placeholder="Nombre" formControlName="nombre">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+                <!-- END NOMBRE USUARIO -->
+                <!-- APELLIDO PATERNO -->
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Apellido paterno *</mat-label>
+                      <input matInput placeholder="Apellido paterno" formControlName="appPaterno">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+                <!-- END APELLIDO PATERNO -->
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Apellido materno *</mat-label>
+                      <input matInput placeholder="Apellido materno" formControlName="appMaterno">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+                
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Correo electrónico *</mat-label>
+                        <input matInput placeholder="Correo electrónico" formControlName="correo" class="minuscula">
+                      </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Número de celular *</mat-label>
+                      <input matInput placeholder="Ejemplo: 920719251" type="number" formControlName="celular">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+                <!-- GENERO -->
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Genero</mat-label>
+                      <mat-select [(value)]="selectedGenero">
+                        <mat-option *ngFor="let food of genero" [value]="food.value">
+                          {{food.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+                  <!-- COMUNA EMPRESA -->
+                  <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Comuna</mat-label>
+                          <mat-select placeholder="Seleccione una comuna" [(value)]="selectedComuna">
+                            <mat-option *ngFor="let option of options2" [value]="option.idComuna">
+                              {{ option.comuna }}
+                            </mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <!-- DIRECCION -->
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Dirección *</mat-label>
+                      <input matInput placeholder="Nombre" formControlName="direccionUser">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+                <!-- BOTON GUARDAR DATOS PERSONALES -->
+                <div>
+                  <button mat-button matStepperNext class="button-next" (click)="savePersonales()">Guardar</button>
+                </div>
+              </form>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+          <!-- END PRIMER MODULO -->
+          <!-- SEGUNDO MODULO -->
+          <mat-grid-tile colspan={{colspanTwo}} rowspan=1>
+            <mat-card class="dashboard-card" appearance="outlined">
+              <mat-card-header>
+                <mat-card-title>
+                 
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="dashboard-card-content">
+                <div class="colorTitulo">Editar datos Empresa.</div>
+                <form [formGroup]="formularioEmpresa">
+                  <mat-grid-list cols="4" rowHeight="100px">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Nombre Empresa</mat-label>
+                        <input matInput placeholder="NombreEmpresa" formControlName="nombreEmpresa">
+                      </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Nombre Fantasía</mat-label>
+                        <input matInput placeholder="Nombre Fantasía" formControlName="NombreFantasia">
+                      </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>RUT</mat-label>
+                        <input matInput placeholder="RUT" formControlName="RutEmpresa">
+                      </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <!-- COMUNA EMPRESA -->
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Comuna</mat-label>
+                        <mat-select placeholder="Seleccione una comuna" [(value)]="selected2">
+                          <mat-option *ngFor="let option of options2" [value]="option.idComuna">
+                            {{ option.comuna }}
+                          </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+                  <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Dirección</mat-label>
+                        <input matInput placeholder="Dirección" formControlName="DireccionEmpresa">
+                      </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <div>
+                    <button mat-button matStepperNext class="button-next">Guardar</button>
+                  </div>
+                </form>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+          <!-- END SEGUNDO MODULO -->
+        </mat-grid-list>
+      </div>
+    </mat-tab>
+    <!-- END DATOS PERSONALES -->
+    <!-- CAMBIAR CONTRASEÑA -->
+    <mat-tab label="Cambiar contraseña">
+      <div class="grid-container">
+            <form [formGroup]="formularioPass">
+              <mat-grid-list cols="2" rowHeight="440px">
+         
+      
+                <mat-grid-tile colspan={{colspanOne}} rowspan=1>
+                  <mat-card class="dashboard-card">
+                    <mat-card-header>
+                      <mat-card-title>
+                       
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <div class="colorTitulo">Restablece tu contraseña.</div>
+      
+                      <mat-grid-list cols="4" rowHeight="100px" >
+                        <mat-grid-tile colspan="4" rowspan="1">
+                          <mat-form-field class="full-width-input">
+                            <mat-label>Contraseña *</mat-label>
+                            <input matInput [type]="hide() ? 'password' : 'text'" formControlName="pass"/>
+                            <button
+                              mat-icon-button
+                              matSuffix
+                              (click)="clickEvent($event)"
+                              [attr.aria-label]="'Hide password'"
+                              [attr.aria-pressed]="hide()"
+                            >
+                              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                          </mat-form-field>
+                        </mat-grid-tile>
+                      </mat-grid-list>
+
+                      <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                        <mat-grid-tile colspan="4" rowspan="1">
+                          <mat-form-field class="full-width-input">
+                            <mat-label>Confirmar contraseña *</mat-label>
+                        <input matInput [type]="hideTwo() ? 'password' : 'text'" formControlName="passConfirm"/>
+                        <button
+                          mat-icon-button
+                          matSuffix
+                          (click)="clickEventTwo($event)"
+                          [attr.aria-label]="'Hide password'"
+                          [attr.aria-pressed]="hideTwo()"
+                        >
+                          <mat-icon>{{hideTwo() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                          </mat-form-field>
+                        </mat-grid-tile>
+                      </mat-grid-list>
+                      <div>
+                        <button mat-button matStepperNext class="button-next" (click)="savePass()">Restablecer contraseña</button>
+                      </div>
+                    </mat-card-content>
+                    
+                  </mat-card>
+                </mat-grid-tile>
+                
+            
+                <mat-grid-tile colspan={{colspanTwo}} rowspan=1>
+                  <mat-card class="dashboard-card" appearance="outlined">
+                    <mat-card-header>
+                      <mat-card-title>
+                       
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <h4>banner:</h4>
+                     
+                    </mat-card-content>
+                  </mat-card>
+                </mat-grid-tile>
+      
+              
+            
+              </mat-grid-list>
+              
+            </form>
+      
+          
+      </div>
+    </mat-tab>
+    <!-- FRECUENTE -->
+    <mat-tab label="Frecuentes">
+      <div class="grid-container">
+        <form [formGroup]="formularioFrecuente">
+          <mat-grid-list cols="4" rowHeight="820px">
+            <mat-grid-tile colspan={{colspanFrecuenteOne}} rowspan=1>
+              <mat-card class="dashboard-card">
+                <mat-card-header>
+                  <mat-card-title>
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                  <div class="colorTitulo">Frecuentes</div>
+                  <!-- nombreFrecuente -->
+                  <mat-grid-list cols="4" rowHeight="100px">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Nombre *</mat-label>
+                        <input matInput placeholder="Nombre" formControlName="nombreFrecuente">
+                      </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <!-- correoFrecuente -->
+                  <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Correo electrónico *</mat-label>
+                          <input matInput placeholder="Correo electrónico" formControlName="correoFrecuente">
+                      </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <!-- celularFrecuente -->
+                  <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Número de celular *</mat-label>
+                          <input matInput placeholder="Ejemplo: 920719251" type="number" formControlName="celularFrecuente">
+                        </mat-form-field>
+                      </mat-grid-tile>
+                    </mat-grid-list>
+                  <!-- COMUNA EMPRESA -->
+                  <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Comuna</mat-label>
+                          <mat-select placeholder="Seleccione una comuna" [(value)]="selectedComunaFrecuente">
+                            <mat-option [value]="0">Seleccione...</mat-option>
+                            <mat-option *ngFor="let option of optionsFrecuente" [value]="option.idComuna">
+                              {{ option.comuna }}
+                            </mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <!-- DIRECCION -->
+                  <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Dirección *</mat-label>
+                        <input matInput placeholder="Nombre" formControlName="direccionFrecuente">
+                      </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <div>
+                    <button mat-button matStepperNext class="button-next" (click)="saveFrecuente()">Enviar</button>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+            <!-- TABLA FRECUENTE -->
+            <mat-grid-tile colspan={{colspanFrecuenteTwo}} rowspan=1>
+              <mat-card class="dashboard-card" appearance="outlined">
+                <mat-card-header>
+                  <mat-card-title>
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                  <mat-form-field class="full-width-input">
+                    <mat-label>Filtro</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" #input>
+                  </mat-form-field>
+                  <section class="example-container mat-elevation-z8" tabindex="0">
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                      <!-- Nombre -->
+                      <ng-container matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef class="iconsizeTable"> Nombre</th>
+                        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+                      </ng-container>
+                      <!-- Correo -->
+                      <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef class="iconsizeTable"> Correo </th>
+                        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+                      </ng-container>
+                      <!-- Celular -->
+                      <ng-container matColumnDef="telefono">
+                        <th mat-header-cell *matHeaderCellDef class="iconsizeTable"> Celular</th>
+                        <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+                      </ng-container>
+                      <!-- Comuna -->
+                      <ng-container matColumnDef="comuna">
+                        <th mat-header-cell *matHeaderCellDef class="iconsizeTable">Comuna&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <td mat-cell *matCellDef="let element"> {{element.comuna}} </td>
+                      </ng-container>
+                      <!-- Dirección -->
+                      <ng-container matColumnDef="direccion">
+                        <th mat-header-cell *matHeaderCellDef class="iconsizeTable"> Dirección&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+                        <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+                      </ng-container>
+                      <!-- ACCIONES-->
+                      <ng-container matColumnDef="acciones">
+                        <th mat-header-cell *matHeaderCellDef class="iconsizeTable"> Acciones </th>
+                        <td mat-cell *matCellDef="let element"> 
+                          <button mat-button [matMenuTriggerFor]="menu" #menuTrigger matTooltip="Acciones">
+                            <i class="bx bx-dots-vertical iconsizeTable"></i> 
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item  (click)="openDialogEditFrecuente(element)"><i class="bx bxs-edit iconsizeTable"> Editar</i> </button>
+                            <button mat-menu-item  (click)="eliminarFrecuente(element)"><i class="bx bxs-trash iconsizeTable">Eliminar</i> </button>
+                          </mat-menu>
+                        </td>
+                      </ng-container>
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No hay datos que coincidan con el filtro. "{{input.value}}"</td>
+                      </tr>
+                    </table>
+                    <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons aria-label="Select page of periodic elements">
+                    </mat-paginator>
+                  </section>
+                </mat-card-content>
+              </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </form>
+      
+        <mat-grid-list cols="3" rowHeight="150px">
+          <mat-grid-tile colspan={{colspanThree}} rowspan=1>
+            <mat-card class="dashboard-card">
+              <mat-card-header>
+                <mat-card-title>
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="dashboard-card-content">
+                <div>whatsapp   contactoshipments.cl</div>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </mat-tab> 
+    
+    <!-- <mat-tab label="Mis direcciones">
+      <div class="grid-container">
+        <h4 class="mat-h1">Contacto</h4>
+            <form [formGroup]="formulario">
+              <mat-grid-list cols="2" rowHeight="440px">
+         
+      
+                <mat-grid-tile colspan={{colspanOne}} rowspan=1>
+                  <mat-card class="dashboard-card">
+                    <mat-card-header>
+                      <mat-card-title>
+                       
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <div>Contáctate con SHIPP.</div>
+      
+                      <mat-grid-list cols="4" rowHeight="100px">
+                        <mat-grid-tile colspan="4" rowspan="1">
+                          <mat-form-field class="full-width-input">
+                            <mat-label>Nombre *</mat-label>
+                            <input matInput placeholder="Nombre" formControlName="nombre">
+                          </mat-form-field>
+                        </mat-grid-tile>
+                      </mat-grid-list>
+      
+                      <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                        <mat-grid-tile colspan="4" rowspan="1">
+                            <mat-form-field class="full-width-input">
+                              <mat-label>Correo electrónico *</mat-label>
+                              <input matInput placeholder="Correo electrónico" formControlName="correo">
+                            </mat-form-field>
+                          </mat-grid-tile>
+                      </mat-grid-list>
+      
+                      <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                        <mat-grid-tile colspan="4" rowspan="1">
+                          <mat-form-field class="full-width-input">
+                            <mat-label>Número de celular *</mat-label>
+                            <input matInput placeholder="Ejemplo: 920719251" type="number" formControlName="celular">
+                          </mat-form-field>
+                        </mat-grid-tile>
+                      </mat-grid-list>
+                      
+                      <div>
+                        <button mat-button matStepperNext class="button-next" (click)="save()">Enviar</button>
+                      </div>
+                    </mat-card-content>
+                    
+                  </mat-card>
+                </mat-grid-tile>
+                
+            
+                <mat-grid-tile colspan={{colspanTwo}} rowspan=1>
+                  <mat-card class="dashboard-card" appearance="outlined">
+                    <mat-card-header>
+                      <mat-card-title>
+                       
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <h4>Conversemos:</h4>
+                      <p>
+                        
+                        
+                        Horario de Atención:
+                        
+                        Lunes a Jueves de 8:00 a 21:00, Viernes de 8:00 a 18:30 y Sábados de 8:00 a 17:00
+                      </p>
+                    </mat-card-content>
+                  </mat-card>
+                </mat-grid-tile>
+      
+              
+            
+              </mat-grid-list>
+              
+            </form>
+      
+            <mat-grid-list cols="3" rowHeight="150px">
+              <mat-grid-tile colspan={{colspanThree}} rowspan=1>
+                <mat-card class="dashboard-card">
+                  <mat-card-header>
+                    <mat-card-title>
+                     
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content class="dashboard-card-content">
+                    <div>whatsapp   contactoshipments.cl</div>
+                  </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+            </mat-grid-list>
+      </div>
+    </mat-tab>  -->
+    <!-- <mat-tab label="Métodos de Pago">
+      <div class="grid-container">
+        <h4 class="mat-h1">Contacto</h4>
+            <form [formGroup]="formulario">
+              <mat-grid-list cols="2" rowHeight="440px">
+         
+      
+                <mat-grid-tile colspan={{colspanOne}} rowspan=1>
+                  <mat-card class="dashboard-card">
+                    <mat-card-header>
+                      <mat-card-title>
+                       
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <div>Contáctate con SHIPP.</div>
+      
+                      <mat-grid-list cols="4" rowHeight="100px">
+                        <mat-grid-tile colspan="4" rowspan="1">
+                          <mat-form-field class="full-width-input">
+                            <mat-label>Nombre *</mat-label>
+                            <input matInput placeholder="Nombre" formControlName="nombre">
+                          </mat-form-field>
+                        </mat-grid-tile>
+                      </mat-grid-list>
+      
+                      <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                        <mat-grid-tile colspan="4" rowspan="1">
+                            <mat-form-field class="full-width-input">
+                              <mat-label>Correo electrónico *</mat-label>
+                              <input matInput placeholder="Correo electrónico" formControlName="correo">
+                            </mat-form-field>
+                          </mat-grid-tile>
+                      </mat-grid-list>
+      
+                      <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                        <mat-grid-tile colspan="4" rowspan="1">
+                          <mat-form-field class="full-width-input">
+                            <mat-label>Número de celular *</mat-label>
+                            <input matInput placeholder="Ejemplo: 920719251" type="number" formControlName="celular">
+                          </mat-form-field>
+                        </mat-grid-tile>
+                      </mat-grid-list>
+                     
+                      <div>
+                        <button mat-button matStepperNext class="button-next" (click)="save()">Enviar</button>
+                      </div>
+                    </mat-card-content>
+                    
+                  </mat-card>
+                </mat-grid-tile>
+                
+            
+                <mat-grid-tile colspan={{colspanTwo}} rowspan=1>
+                  <mat-card class="dashboard-card" appearance="outlined">
+                    <mat-card-header>
+                      <mat-card-title>
+                       
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <h4>Conversemos:</h4>
+                      <p>
+                        
+                        
+                        Horario de Atención:
+                        
+                        Lunes a Jueves de 8:00 a 21:00, Viernes de 8:00 a 18:30 y Sábados de 8:00 a 17:00
+                      </p>
+                    </mat-card-content>
+                  </mat-card>
+                </mat-grid-tile>
+      
+              
+            
+              </mat-grid-list>
+              
+            </form>
+      
+            <mat-grid-list cols="3" rowHeight="150px">
+              <mat-grid-tile colspan={{colspanThree}} rowspan=1>
+                <mat-card class="dashboard-card">
+                  <mat-card-header>
+                    <mat-card-title>
+                     
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content class="dashboard-card-content">
+                    <div>whatsapp   contactoshipments.cl</div>
+                  </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+            </mat-grid-list>
+      </div>
+    </mat-tab> -->
+  </mat-tab-group>
+</div>
+

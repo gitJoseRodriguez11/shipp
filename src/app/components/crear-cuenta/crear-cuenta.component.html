@@ -1,0 +1,99 @@
+<ngx-spinner type="ball-beat"></ngx-spinner>
+
+ <div class="signin-content">
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="formulario">
+        <p class="tituloPanel">Crea tu cuenta</p>
+
+        <mat-grid-list cols="4" rowHeight="100px">
+          <mat-grid-tile colspan="2" rowspan="1">
+            <mat-form-field class="full-width-input">
+              <mat-label>Nombre *</mat-label>
+              <input matInput placeholder="Nombre" formControlName="name">
+            </mat-form-field>
+          </mat-grid-tile>
+        
+          <mat-grid-tile colspan="2" rowspan="1">
+            <mat-form-field class="full-width-input">
+              <mat-label>Apellido *</mat-label>
+              <input matInput type="password" placeholder="Apellido" formControlName="apellidoPaterno">
+              <!-- <mat-error *ngIf="isFieldInvalid('userName')"> -->
+                <!-- Please inform your password -->
+              <!-- </mat-error> -->
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="4" rowHeight="100px">
+          <mat-grid-tile colspan="2" rowspan="1">
+            <mat-form-field class="full-width-input">
+              <mat-label>Correo electrónico *</mat-label>
+              <input matInput placeholder="Correo electrónico" formControlName="correo" class="minuscula">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile colspan="2" rowspan="1">
+            <mat-form-field class="full-width-input">
+              <mat-label>Confirma correo electrónico *</mat-label>
+              <input matInput placeholder="Confirma correo electrónico" formControlName="correoConfirm" class="minuscula">
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>  
+
+        <mat-grid-list cols="4" rowHeight="100px">
+          <mat-grid-tile colspan="2" rowspan="1">
+            <mat-form-field class="full-width-input">
+              <mat-label>Número de celular *</mat-label>
+              <input matInput placeholder="Ejemplo: 920719251" ng-maxlength="5" type="number" formControlName="celular">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile colspan="2" rowspan="1">
+           
+            <mat-form-field class="full-width-input">
+              <mat-label>Dirección *</mat-label>
+              <input matInput placeholder="Dirección" formControlName="direccion">
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>  
+
+        <mat-grid-list cols="4" rowHeight="100px">
+          <mat-grid-tile colspan="2" rowspan="1">
+            <mat-form-field class="full-width-input">
+              <mat-label>Contraseña *</mat-label>
+              <input matInput [type]="hide() ? 'password' : 'text'" formControlName="pass"/>
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="clickEvent($event)"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide()"
+              >
+                <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile colspan="2" rowspan="1">
+            <mat-form-field class="full-width-input">
+              <mat-label>Confirmar contraseña *</mat-label>
+          <input matInput [type]="hideTwo() ? 'password' : 'text'" formControlName="passConfirm"/>
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="clickEventTwo($event)"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hideTwo()"
+          >
+            <mat-icon>{{hideTwo() ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+        
+        <button mat-raised-button class="butonship" (click)="save()">Registrarme</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

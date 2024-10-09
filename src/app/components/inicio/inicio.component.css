@@ -1,0 +1,123 @@
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+.grid-container {
+  margin: 0px;
+}
+
+.button-edit{
+  margin: 0px;
+}
+
+.button-next{
+  background-color: #e94d1a;
+  color: white; 
+
+ }
+
+h4 {
+  color: #e94d1a;
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.full-width-input {
+  width: 100%;
+}
+
+.mat-grid{
+  margin-top: -33px;
+}
+
+.mat-step-icon-selected{
+  color: #e94d1a !important;
+}
+
+
+
+.img-precio-santiago {
+  background-image: url('../../../assets/images/banner-home.png');
+  background-size: cover;
+}
+
+.colorTitulo{
+  color: #e94d1a;
+}
+
+
+
+.example-header-image {
+  background-image: url('../../../assets/images/2206503.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.responsive-image {
+  width: 100%; /* Hace que la imagen ocupe todo el ancho del card */
+  height: auto; /* Mantiene la relación de aspecto */
+}
+
+
+@media all and (max-width: 800px) {
+
+  .grid-container {
+    margin: 0px;
+  }
+
+  h4{
+    text-align: center;
+  }
+  .nonetext{
+    display: none;
+  }
+
+  .colorTitulo{
+    color: #e94d1a;
+    text-align: center;
+  }
+
+  .dashboard-card {
+    /* position: absolute; */
+    top: 9px;
+    left: 37px;
+    right: 3px;
+    bottom: 15px;
+    margin: auto;
+  }
+
+  .responsive-image {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho del card */
+    height: auto; /* Mantiene la relación de aspecto */
+  }
+
+  .mat-horizontal-content-container {
+    overflow: hidden !important;
+    padding: 0 10px 10px 10px !important;
+}
+mat-grid-list{
+  left: -35px;
+  width: calc(108% + 0px);
+
+}
+
+.full-width-input {
+  width: 100%;
+  margin-left: 22px;
+
+}
+
+
+} 

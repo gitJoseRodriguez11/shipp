@@ -1,0 +1,192 @@
+<ngx-spinner type="ball-beat"></ngx-spinner>
+
+<div class="grid-container">
+  <h4 class="mat-h1">pagos</h4>
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile colspan=1 rowspan=1>
+     
+        <mat-card class="dashboard-card example-header-image">
+          
+            <mat-card-header>
+                <mat-card-title>
+                </mat-card-title>
+            </mat-card-header>
+            
+            <mat-card-content class="dashboard-card-content" >
+              <div class="box">
+                <div>
+                  <div class="colorTitulo">Seguimiento</div>
+                  <form [formGroup]="formularioTracking">
+                      <mat-grid-list cols="4" rowHeight="2:2">
+                        <mat-grid-tile colspan={{colspanTwo}} rowspan=1>
+                         
+                            <mat-form-field class="full-width-input">
+                              <mat-label>Ingresa número de orden</mat-label>
+                              <input matInput placeholder="Ingresa número de orden" formControlName="orden">
+                            </mat-form-field>
+
+                        </mat-grid-tile>
+                        <mat-grid-tile colspan={{colspanThree}} rowspan=1>
+                          <button mat-button class="button-next" (click)="openDialogTracking()">
+                            <mat-icon>local_shipping</mat-icon>
+                            Buscar
+                          </button> 
+                        </mat-grid-tile>
+                        
+                      </mat-grid-list>
+                    </form>
+                </div>
+                <div>
+                  
+                </div>
+                <div>
+                  
+                </div>
+              </div>
+            </mat-card-content>
+      
+        </mat-card>
+     
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan=1 rowspan=2>
+      <mat-card class="dashboard-card">
+          <mat-card-header>
+              <mat-card-title>
+                Método de pago
+              </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <mat-grid-list cols="2" rowHeight="80px">
+              <mat-grid-tile>
+                <img mat-card-md-image src="../../../assets/images/webpay-plus.png" alt="webpay-plus">
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <section class="example-section">
+                  <mat-checkbox>
+                  </mat-checkbox>
+                </section>
+                
+              </mat-grid-tile>
+
+
+
+              
+
+
+
+            </mat-grid-list>
+
+            <mat-grid-list cols="2" rowHeight="80px">
+              <mat-grid-tile>
+                <p class="mat-body-2">Acepto los términos y condiciones SHIPP
+                  <i class="bx bx-info-circle infot" (click)="terminos()"></i>
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <section class="example-section">
+                  <mat-checkbox>
+                  </mat-checkbox>
+                </section>
+              </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-grid-list cols="2" rowHeight="80px">
+              <mat-grid-tile>
+                <p class="mat-body-2">Total a pagar: $
+                  <i class="bx bx-info-circle infot" (click)="terminos()"></i>
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <form>
+                  <input type="hidden" name="token_ws" value=""/>
+                  <input type="submit" class="boton-pagar" value="Pagar"/>
+                </form>
+              </mat-grid-tile>
+            </mat-grid-list>
+
+            
+
+            
+          </mat-card-content>
+    
+      </mat-card>
+  </mat-grid-tile>
+  
+
+  <mat-grid-tile colspan=1 rowspan=2>
+    <div class="img-precio-santiago">
+      
+    </div>
+    <mat-card class="dashboard-card">
+        <mat-card-header>
+            <mat-card-title>
+              
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <h5>Origen</h5>
+            <div>
+              <p><i class="bx bx-user"></i> {{ pagonombreOrigen }}</p>
+              <p><i class="bx bx-mail-send"></i> {{ pagoemailOrigen }}</p>
+              <p><i class="bx bxs-phone"></i> {{ pagocelularorigen }}</p>
+              <p><i class="bx bx-current-location"></i> {{ pagodireccionOrigen }}</p>
+            </div>
+          <h5>Destino</h5>
+          <div>
+            <p><i class="bx bx-user"></i> {{ pagonombreDestino }}</p>
+            <p><i class="bx bx-mail-send"></i> {{ pagoemailDestino }}</p>
+            <p><i class="bx bxs-phone"></i> {{ pagocelularDestino }}</p>
+            <p><i class="bx bx-current-location"></i> {{ pagodireccionDestino }}</p>
+          </div>    
+          
+
+        </mat-card-content>
+  
+    </mat-card>
+</mat-grid-tile>
+
+
+
+</mat-grid-list>
+
+<mat-grid-list cols="2" rowHeight="400px">
+
+
+  
+
+
+
+
+
+
+</mat-grid-list>
+
+
+
+<!-- <mat-grid-list cols="3" rowHeight="150px">
+<mat-grid-tile colspan={{colspanThree}} rowspan=1>
+  <mat-card class="dashboard-card">
+    <mat-card-header>
+      <mat-card-title>
+       
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content">
+      <div>whatsapp   contactoshipments.cl</div>
+    </mat-card-content>
+  </mat-card>
+</mat-grid-tile>
+</mat-grid-list> -->
+
+
+
+
+</div>
+
+
+
+
+
+

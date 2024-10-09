@@ -1,0 +1,177 @@
+
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-mdc-form-field {
+    margin-top: 16px;
+  }
+
+  .grid-container {
+    margin: 20px;
+  }
+
+  .button-edit{
+    margin: 0px;
+  }
+
+  .button-next{
+    background-color: #e94d1a;
+    color: white; 
+    margin: -3px;
+   }
+
+   .button-nexttwo{
+    background-color: #e94d1a;
+    color: white; 
+    margin: -3px;
+    margin-left: 10px;
+   }
+
+   .button-atras{
+    background-color: #e94d1a;
+    color: white; 
+    margin: -3px;
+   }
+
+  h4 {
+    color: #e94d1a
+  }
+
+  mat-card-title{
+    color: #e94d1a
+  }
+
+  .dashboard-cardtwo {
+    position: absolute;
+    top: 15px;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+  }
+
+  .dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .full-width-input {
+    width: 100%;
+    }
+
+  .inputstyle{
+    margin: 0 auto;
+    order: none;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+  }
+
+  .mat-grid{
+    margin-top: -33px;
+  }
+
+  .mat-step-icon-selected{
+    color: #e94d1a !important;
+  }
+  .dest-frecuente{
+    background-color: #e94d1a;
+    color: white;
+  }
+
+  .dest-frecuente-div{
+    text-align: end;
+  }
+
+  .boton-pagar{
+    border-color: white;
+    background-color: #e94d1a;
+    color: white;
+    margin: -3px;
+    height: 40px;
+    width: 80px;
+  }
+ 
+  .infot{
+    color: aqua;
+    font-size: 20px;
+  }
+  
+  .colorTitulo{
+    color: #e94d1a;
+
+  }
+
+  .bx{
+    color: #e94d1a !important;
+  }
+
+  
+    .bx-list-ul{
+      color: white !important;
+    }
+    
+  
+
+  
+
+  .minuscula{
+    text-transform: lowercase;
+  }
+
+  .mat-mdc-text-field-wrapper{
+    margin: 0 auto;
+    order: none;
+    border: solid 1px #ccc;
+    border-radius: 10px !important;
+  }
+  
+
+
+  @media all and (max-width: 800px) {
+
+    .grid-container {
+      margin: 0px;
+    }
+
+    .dest-frecuente-div{
+      text-align: center;
+    }
+
+    h4{
+      text-align: center;
+    }
+    .nonetext{
+      display: none;
+    }
+
+    .colorTitulo{
+      color: #e94d1a;
+      text-align: center;
+    }
+
+    .dashboard-card {
+      position: absolute;
+      top: 15px;
+      left: 1px;
+      right: 1px;
+      bottom: 15px;
+    }
+
+    .mat-horizontal-content-container {
+      overflow: hidden !important;
+      padding: 0 10px 10px 10px !important;
+  }
+  mat-grid-list{
+    left: -17px;
+    width: calc(109% + 0px);
+
+  }
+
+  .full-width-input {
+    width: 98%;
+  }
+
+} 

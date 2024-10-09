@@ -1,0 +1,158 @@
+<ngx-spinner type="ball-beat"></ngx-spinner>
+<div class="grid-container">
+    <h4 class="mat-h1">Todas solicitudes</h4>
+    <mat-grid-list cols="4" rowHeight="440px">
+        <mat-grid-tile colspan={{colspanOne}} rowspan=1>
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    <div>Busqueda.</div>
+                    <form [formGroup]="myForm">
+                        <!-- Fecha desde * -->
+                        <mat-grid-list cols="4" rowHeight="100px">
+                            <mat-grid-tile colspan="4" rowspan="1">
+                                <mat-form-field class="full-width-input">
+                                    <mat-label>Fecha desde *</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="date">
+                                    <mat-hint>DD-MM-YYYY</mat-hint>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                        <!-- Fecha hasta * -->
+                        <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                            <mat-grid-tile colspan="4" rowspan="1">
+                                <mat-form-field class="full-width-input">
+                                    <mat-label>Fecha hasta *</mat-label>
+                                    <input matInput [matDatepicker]="picker2" formControlName="date2">
+                                    <mat-hint>DD-MM-YYYY</mat-hint>
+                                    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker2></mat-datepicker>
+                                </mat-form-field>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                        <!-- Estado de pago -->
+                        <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                            <mat-grid-tile colspan="4" rowspan="1">
+                              <mat-form-field class="full-width-input">
+                                <mat-label>Estado de pago</mat-label>
+                                <mat-select [(value)]="selectedEstoPago">
+                                    <mat-option [value]=3>Seleccione ...</mat-option>
+                                  <mat-option *ngFor="let estados of estado" [value]="estados.value">
+                                    {{estados.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </form>
+                        <div>
+                            <button mat-button class="button-next" (click)="buscar()">Buscar</button>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+      
+            <!-- TABLA -->
+            <mat-grid-tile colspan={{colspanTwo}} rowspan=2>
+                <mat-card class="dashboard-card" appearance="outlined">
+                    <mat-card-header>
+                        <mat-card-title>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                        <mat-form-field class="full-width-input">
+                            <mat-label>Filtro</mat-label>
+                            <input matInput (keyup)="applyFilter($event)" #input>
+                        </mat-form-field>
+                        <section class="example-container mat-elevation-z8" tabindex="0">
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                                <!-- No. Orden -->
+                                <ng-container matColumnDef="n_orden">
+                                <th mat-header-cell *matHeaderCellDef> No.&nbsp;Orden </th>
+                                <td mat-cell *matCellDef="let element"> {{element.n_orden}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="tiket">
+                                    <th mat-header-cell *matHeaderCellDef> TICKET </th>
+                                    <td mat-cell *matCellDef="let element">  <i matTooltip="Descargar Ticket de envío." class="bx bx-file iconsize" (click)="descargarTicket(element)"></i></td>
+                                </ng-container>
+
+                                <!-- No. Orden -->
+                                <ng-container matColumnDef="fecha_creacion">
+                                    <th mat-header-cell *matHeaderCellDef> Fecha&nbsp;solicitud</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.fecha_creacion}} </td>
+                                    </ng-container>
+                          
+                                <!-- Nombre -->
+                                <ng-container matColumnDef="nombre">
+                                <th mat-header-cell *matHeaderCellDef> Nombre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+                                <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+                                </ng-container>
+                          
+                                <!-- Correo -->
+                                <ng-container matColumnDef="email">
+                                <th mat-header-cell *matHeaderCellDef> Correo </th>
+                                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                                </ng-container>
+                          
+                                <!-- Celular -->
+                                <ng-container matColumnDef="telefono">
+                                <th mat-header-cell *matHeaderCellDef> Celular </th>
+                                <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+                                </ng-container>
+
+                                <!-- comuna_s -->
+                                <ng-container matColumnDef="comuna_s">
+                                    <th mat-header-cell *matHeaderCellDef> Comuna&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.comuna_s}} </td>
+                                    </ng-container>
+
+                                <!-- Dirección -->
+                                <ng-container matColumnDef="direccion">
+                                    <th mat-header-cell *matHeaderCellDef> Dirección&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+                                </ng-container>
+
+                                 <!-- estadoPagadoS-->
+                                 <ng-container matColumnDef="estado_pago">
+                                    <th mat-header-cell *matHeaderCellDef> Estado </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.estado_pago}} </td>
+                                </ng-container>
+
+                                 <!-- ACCIONES-->
+                                 <ng-container matColumnDef="acciones">
+                                    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                                    <td mat-cell *matCellDef="let element"> 
+                                        <section>
+                                            <div class="example-button-row">
+                                                <i *ngIf="element.estado_pago == 'PENDIENTE' " matTooltip="Detener solicitud." class="bx bx-block iconsize" (click)="detenerSolicitud(element)"></i>
+                                                <i *ngIf="element.estadotracking == 1 || element.estadotracking == 0 && element.estado_pago != 'RECHAZADO'" matTooltip="Envío Retirado." class="bx bxs-building-house iconsize" (click)="setEstadoTracking(element,2)"></i>
+                                                <i *ngIf="element.estadotracking == 2 && element.estado_pago != 'RECHAZADO'" matTooltip="Envío en Tránsito." class="bx bxs-truck iconsize" (click)="setEstadoTracking(element,3)"></i>
+                                                <i *ngIf="element.estadotracking == 3 && element.estado_pago != 'RECHAZADO'"matTooltip="Envío entregado." class="bx bx-home iconsize" (click)="setEstadoTracking(element,4)"></i>
+                                            </div>
+                                        </section>
+                                    </td>
+                                </ng-container>
+                          
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                          
+                                <!-- Row shown when there is no matching data. -->
+                                <tr class="mat-row" *matNoDataRow>
+                                <td class="mat-cell" colspan="4">No hay datos que coincidan con el filtro. "{{input.value}}"</td>
+                                </tr>
+                            </table>
+                            <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons 
+                                aria-label="Select page of periodic elements">
+                            </mat-paginator>
+                        </section>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

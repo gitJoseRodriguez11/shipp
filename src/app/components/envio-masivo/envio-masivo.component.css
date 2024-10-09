@@ -1,0 +1,35 @@
+
+.mat-mdc-form-field {
+    margin-top: 16px;
+  }
+  
+  .grid-container {
+    margin: -12px;
+  }
+  
+  .button-next{
+    background-color: #e94d1a;
+    color: white; 
+    margin: 12px;
+   }
+  
+  h4 {
+    color: #e94d1a;
+    margin: 20px;
+  }
+  
+  .dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+  }
+  
+  .full-width-input {
+    width: 100%;
+  }
+  
+  .mat-grid{
+    margin-top: -33px;
+  }

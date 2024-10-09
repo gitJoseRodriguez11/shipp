@@ -1,0 +1,24 @@
+.button-shipp{
+    border-color: white;
+    background-color: #e94d1a;
+    color: white;
+}
+
+.spancolor{
+    color: #e94d1a;
+}
+
+.container{
+    max-width: 100%;
+    overflow: auto;
+}
+
+@media all and (max-width: 800px) {
+    .spancolor{
+        display: none;
+    }
+    .textFrecuente{
+        font-size: xx-small;
+    }
+}
+

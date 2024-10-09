@@ -1,0 +1,129 @@
+.mat-mdc-form-field {
+    margin-top: 16px;
+  }
+  
+  .grid-container {
+    margin: 20px;
+  }
+  
+  
+  
+   .button-next{
+    background-color: #e94d1a;
+    color: white; 
+    margin: -3px;
+   }
+  
+  h4 {
+    color: #e94d1a;
+    margin: 20px;
+  }
+  .ptitulo{
+    color: #e94d1a
+  }
+  
+  .dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+  }
+  
+  .full-width-input {
+    width: 100%;
+  }
+  
+  .mat-grid{
+    margin-top: -33px;
+  }
+  
+  .minuscula{
+    text-transform: lowercase;
+  }
+  
+  .colorTitulo{
+    color: #e94d1a;
+  }
+  
+  @media all and (max-width: 800px) {
+
+    .grid-container {
+      margin: 0px;
+    }
+  
+    h4{
+      text-align: center;
+    }
+    .nonetext{
+      display: none;
+    }
+  
+    .colorTitulo{
+      color: #e94d1a;
+      text-align: center;
+    }
+  
+    .dashboard-card {
+      /* position: absolute; */
+      top: 9px;
+      left: 37px;
+      right: 3px;
+      bottom: 15px;
+    }
+  
+    .mat-horizontal-content-container {
+      overflow: hidden !important;
+      padding: 0 10px 10px 10px !important;
+  }
+  mat-grid-list{
+    left: -35px;
+    width: calc(108% + 0px);
+  
+  }
+  
+  .full-width-input {
+    width: 100%;
+    margin-left: 22px;
+  
+  }
+  
+  
+  } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.button-shipp{
+    border-color: white;
+    background-color: #e94d1a;
+    color: white;
+}
+
+.spancolor{
+    color: #e94d1a;
+}
+
+.container{
+    max-width: 100%;
+    overflow: auto;
+}
+
+@media all and (max-width: 800px) {
+    .spancolor{
+        display: none;
+    }
+    .textFrecuente{
+        font-size: xx-small;
+    }
+}

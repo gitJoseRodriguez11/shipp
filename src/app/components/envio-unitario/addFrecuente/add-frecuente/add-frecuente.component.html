@@ -1,0 +1,30 @@
+<button mat-icon-button matDialogClose style="float: right">
+    <mat-icon>close</mat-icon>
+</button>
+
+<h2 mat-dialog-title class="spancolor">{{data.name}}</h2>
+<div class="container">
+    <mat-dialog-content>
+        <form >
+            <mat-selection-list [multiple]="false">
+                <mat-list-option *ngFor="let food of optionsFrecuenteFinal" [value]="food"  (click)="onAreaListControlChanged(food)">
+                    <span class="spancolor">Nombre:</span> 
+                    <span class="textFrecuente">{{food.nombre}} |</span> 
+                    
+                    <span class="spancolor">Comuna:</span> 
+                    <span class="textFrecuente">{{food.comuna}} |</span> 
+                    
+                    <span class="spancolor">Dirección:</span> 
+                    <span class="textFrecuente">{{food.direccion}} |</span>
+
+                    <span class="spancolor">Celular:</span> 
+                    <span class="textFrecuente">{{food.telefono}}</span>
+                </mat-list-option>
+            </mat-selection-list>
+        </form> 
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button class="button-shipp" (click)="onNoClick()">Salir</button>
+        <button mat-button class="button-shipp" [mat-dialog-close]="AgregarFrecuente()" cdkFocusInitial>Agregar</button>
+    </mat-dialog-actions>
+</div>

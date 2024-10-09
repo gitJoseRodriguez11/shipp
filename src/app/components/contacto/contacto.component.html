@@ -1,0 +1,131 @@
+<ngx-spinner type="ball-beat"></ngx-spinner>
+<div class="grid-container">
+  <h4 class="mat-h1">Contacto</h4>
+
+
+      <form [formGroup]="formulario">
+        <mat-grid-list cols="2" rowHeight="440px">
+   
+
+          <mat-grid-tile colspan={{colspanOne}} rowspan=1>
+            <mat-card class="dashboard-card">
+              <mat-card-header>
+                <mat-card-title>
+                 
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="dashboard-card-content">
+                <div>Contáctate con SHIPP.</div>
+
+                <mat-grid-list cols="4" rowHeight="100px">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Nombre *</mat-label>
+                      <input matInput placeholder="Nombre" formControlName="nombre">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Correo electrónico *</mat-label>
+                        <input matInput placeholder="Correo electrónico" formControlName="correo">
+                      </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Número de celular *</mat-label>
+                      <input matInput placeholder="Ejemplo: 920719251" type="number" formControlName="celular">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+                <!-- MENSAJE -->
+                <mat-grid-list cols="4" rowHeight="100px">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Mensaje *</mat-label>
+                      <textarea matInput formControlName="mensaje"></textarea>
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+                <!-- END MENSAJE -->
+                <div>
+                  <button mat-button matStepperNext class="button-next" (click)="save()">Enviar</button>
+                </div>
+              </mat-card-content>
+              
+            </mat-card>
+          </mat-grid-tile>
+          
+      
+          <mat-grid-tile colspan={{colspanTwo}} rowspan=1>
+            <mat-card class="dashboard-card example-header-image" appearance="outlined">
+              <mat-card-header>
+                <mat-card-title>
+                 
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="dashboard-card-content">
+                <h4>Conversemos:</h4>
+                <p>
+                  
+                  
+                  Horario de Atención:
+                  
+                  Lunes a Jueves de 8:00 a 21:00, Viernes de 8:00 a 18:30 y Sábados de 8:00 a 17:00
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+
+        
+      
+        </mat-grid-list>
+        
+      </form>
+
+      <mat-grid-list cols="3" rowHeight="150px">
+        <mat-grid-tile colspan={{colspanThree}} rowspan=1>
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+               
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              <div>whatsapp   contactoshipments.cl</div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+  
+   

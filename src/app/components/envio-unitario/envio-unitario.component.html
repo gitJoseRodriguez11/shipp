@@ -1,0 +1,470 @@
+<ngx-spinner type="ball-beat"></ngx-spinner>
+
+<div class="grid-container">
+  <h4 class="mat-h1">Envío unitario</h4>
+  <!-- <button mat-raised-button (click)="isEditable = !isEditable" class="button-edit">
+    {{!isEditable ? 'Habilitar el modo de edición' : 'Desactivar el modo de edición'}}
+  </button> -->
+  <mat-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel><h5 class="nonetext">Origen</h5></ng-template>
+        <mat-grid-list cols="2" rowHeight="510px">
+   
+
+          <mat-grid-tile colspan={{colspanOne}} rowspan=1>
+            <mat-card class="dashboard-card">
+              <mat-card-header>
+                <mat-card-title>
+                 
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="dashboard-card-content">
+                <div class="colorTitulo">Datos de quién envía</div>
+
+                
+                <mat-grid-list cols="4" rowHeight="100px" >
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      
+                        <mat-label>Nombre y apellidos *</mat-label>
+                      <input matInput placeholder="Nombre" formControlName="name">
+                    
+                      
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+           
+
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Correo electrónico *</mat-label>
+                        <input matInput placeholder="Correo electrónico" formControlName="correo" class="minuscula">
+                      </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Número de celular *</mat-label>
+                      <input matInput placeholder="Ejemplo: 920719251" type="number" formControlName="celular">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+
+                <!-- COMUNA EMPRESA -->
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Comuna</mat-label>
+                        <mat-select placeholder="Seleccione una comuna" [(value)]="selectedComuna">
+                          <mat-option *ngFor="let option of options2" [value]="option.idComuna">
+                            {{ option.comuna }}
+                          </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Dirección *</mat-label>
+                      <input matInput placeholder="Dirección" formControlName="direccion">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+                
+                
+
+
+                <div>
+                  <button mat-button matStepperNext class="button-next">Siguiente</button>
+                </div>
+                
+              </mat-card-content>
+              
+            </mat-card>
+          </mat-grid-tile>
+          
+      
+          <mat-grid-tile colspan={{colspanTwo}} rowspan=1>
+            <mat-card class="dashboard-card">
+              <mat-card-header>
+                <mat-card-title>
+                 
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="dashboard-card-content">
+                <div>banner</div>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+      
+        </mat-grid-list>
+      </form>
+    </mat-step>
+    <!-- SEGUNDA PANTALLA -->
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel><h5 class="nonetext">Destino</h5></ng-template>
+        <mat-grid-list cols="2" rowHeight="600px">
+
+          <mat-grid-tile colspan={{colspanOne}} rowspan=1>
+            <mat-card class="dashboard-card">
+              <mat-card-header>
+                <mat-card-title>
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="dashboard-card-content">
+                 <div>
+                  <div class="colorTitulo">Datos destinatario</div>
+                  <div class="dest-frecuente-div">
+                    <button mat-button class="dest-frecuente" mat-raised-button (click)="openDialogFrecuente()"><i class="bx bx-list-ul"></i>Destinatario frecuente</button>
+                  </div>
+                 </div> 
+                
+                  
+                
+                                         
+
+                <mat-grid-list cols="4" rowHeight="100px">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Nombre y apellidos *</mat-label>
+                      <input matInput placeholder="Nombre" formControlName="nombreDestino">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Correo electrónico *</mat-label>
+                        <input matInput placeholder="Correo electrónico" formControlName="emailDestino" class="minuscula">
+                      </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Número de celular *</mat-label>
+                      <input matInput placeholder="Ejemplo: 920719251" type="number" formControlName="celularDestino">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+
+                  <!-- COMUNA DESTINO -->
+                  <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                    <mat-grid-tile colspan="4" rowspan="1">
+                      <mat-form-field class="full-width-input">
+                        <mat-label>Comuna</mat-label>
+                          <mat-select placeholder="Seleccione una comuna" [(value)]="selected2">
+                            <mat-option *ngFor="let option of options2" [value]="option.idComuna">
+                              {{ option.comuna }}
+                            </mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+
+                <mat-grid-list cols="4" rowHeight="100px" class="mat-grid">
+                  <mat-grid-tile colspan="4" rowspan="1">
+                    <mat-form-field class="full-width-input">
+                      <mat-label>Dirección *</mat-label>
+                      <input matInput placeholder="Dirección" formControlName="direccionDestino">
+                    </mat-form-field>
+                  </mat-grid-tile>
+                </mat-grid-list>
+
+                <div>
+                  <button mat-button matStepperPrevious class="button-atras">Atrás</button>
+                  <button mat-button matStepperNext class="button-nexttwo" (click)="setDestinatario()">Siguiente</button>
+                </div>
+                <br>
+                <div>
+                  <form class="example-form" [formGroup]="formFrecuente" ngNativeValidate>
+                    <mat-slide-toggle formControlName="acceptFrecuente">Quiero guardar los datos ingresados como destino frecuente</mat-slide-toggle>
+                  </form>
+                </div>
+              </mat-card-content>
+              
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+       
+      </form>
+    </mat-step>
+    <!-- TERCERA PANTALLA -->
+    <mat-step>
+      <ng-template matStepLabel><h5 class="nonetext">Pago</h5></ng-template>
+      
+      <mat-grid-list cols="2" rowHeight="920px">
+   
+        <mat-grid-tile colspan={{colspanOne}} rowspan=1>
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+               
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              <div class="colorTitulo">Resumen del envío</div>
+
+              <mat-grid-list cols="2" rowHeight="300px">
+   
+                <mat-grid-tile colspan={{colspanOne}} rowspan=1>
+                  <mat-card class="dashboard-card">
+                    <mat-card-header>
+                      <mat-card-title>
+                        Origen
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <div>
+                        <p><i class="bx bx-user"></i> {{ pagonombreOrigen }}</p>
+                        <p><i class="bx bx-mail-send"></i> {{ pagoemailOrigen }}</p>
+                        <p><i class="bx bxs-phone"></i> {{ pagocelularorigen }}</p>
+                        <p><i class="bx bx-current-location"></i> {{ pagodireccionOrigen }}</p>
+                      </div>
+                    </mat-card-content>
+                  </mat-card>
+                </mat-grid-tile>
+                
+            
+                <mat-grid-tile colspan={{colspanTwo}} rowspan=1>
+                  <mat-card class="dashboard-card">
+                    <mat-card-header>
+                      <mat-card-title>
+                        Destino
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <div>
+                        <p><i class="bx bx-user"></i> {{ pagonombreDestino }}</p>
+                        <p><i class="bx bx-mail-send"></i> {{ pagoemailDestino }}</p>
+                        <p><i class="bx bxs-phone"></i> {{ pagocelularDestino }}</p>
+                        <p><i class="bx bx-current-location"></i> {{ pagodireccionDestino }}</p>
+                      </div>                      
+                    </mat-card-content>
+                  </mat-card>
+                </mat-grid-tile>
+            
+              </mat-grid-list>
+
+              <mat-grid-list cols="3" rowHeight="250px">
+                <mat-grid-tile colspan={{colspanThree}} rowspan=1>
+                  <mat-card class="dashboard-card">
+                    <mat-card-header>
+                      <mat-card-title>
+                        Valor de envío
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <div>
+                        <p>Valor de envío: ${{ valorNeto }}</p>
+                        <p>IVA: ${{ valorIva }}</p>
+                        <p>Descuento: $0</p>
+                        <p>Total: ${{ valorEnvioUnitario }}</p>
+                      </div>
+                    </mat-card-content>
+                  </mat-card>
+                </mat-grid-tile>
+              </mat-grid-list>
+
+              
+
+              <mat-grid-list cols="3" rowHeight="80px">
+                <mat-grid-tile colspan={{colspanThree}} rowspan=1>
+                    <div>
+                      <button mat-button matStepperPrevious class="button-atras">Atrás</button>
+                      <button mat-button (click)="stepper.reset()" class="button-nexttwo">Reset</button>
+                    </div>
+                 
+                </mat-grid-tile>
+              </mat-grid-list>
+              
+              
+              
+            </mat-card-content>
+          
+            
+          </mat-card>
+      
+        </mat-grid-tile>
+        
+    
+        <mat-grid-tile colspan={{colspanTwo}} rowspan=1>
+          <mat-card class="dashboard-cardtwo">
+            <mat-card-header>
+              <mat-card-title>
+               
+              </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content class="dashboard-card-content">
+              
+              <mat-grid-list cols="3" rowHeight="230px">
+                <mat-grid-tile colspan={{colspanThree}} rowspan=1>
+                  <mat-card class="dashboard-cardtwo">
+                    <mat-card-header>
+                      <mat-card-title>
+                        Método de pago
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <mat-grid-list cols="2" rowHeight="80px">
+                        <mat-grid-tile>
+                          <img mat-card-md-image src="../../../assets/images/webpay-plus.png" alt="webpay-plus">
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                          <section class="example-section" [formGroup]="checkForm">
+                            <mat-checkbox formControlName="pepperoni" (change)="onCheckboxChangeWebpay()">
+                            </mat-checkbox>
+                          </section>
+                          
+                        </mat-grid-tile>
+                       
+                      </mat-grid-list>
+                      
+                    </mat-card-content>
+
+                    <mat-card-content class="dashboard-card-content">
+                      <mat-grid-list cols="2" rowHeight="80px">
+                        <mat-grid-tile>
+                          <h3>Envío por pagar destinatario</h3>
+                         
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                          <section class="example-section" [formGroup]="checkFormXP">
+                            <mat-checkbox formControlName="popagar" (change)="onCheckboxChangePorPagar()">
+                            </mat-checkbox>
+                          </section>
+                          
+                        </mat-grid-tile>
+                       
+                      </mat-grid-list>
+                      
+                    </mat-card-content>
+                  
+                  </mat-card>
+                </mat-grid-tile>
+              </mat-grid-list>
+              <!-- Términos y condiciones -->
+              <mat-grid-list cols="3" rowHeight="200px">
+                <mat-grid-tile colspan={{colspanThree}} rowspan=1>
+                  <mat-card class="dashboard-cardtwo">
+                    <mat-card-header>
+                      <mat-card-title>
+                        <mat-label>Términos y condiciones</mat-label>
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <mat-grid-list cols="2" rowHeight="80px">
+                        <mat-grid-tile>
+                          <p class="mat-body-2">Acepto los términos y condiciones SHIPP
+                            <i class="bx bx-info-circle infot" (click)="terminos()"></i>
+                          </p>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                          <section class="example-section" [formGroup]="FormCheckTerminos">
+                            <mat-checkbox formControlName="checkTerminos" (change)="onCheckboxChange()">
+                            </mat-checkbox>
+                          </section>
+                        </mat-grid-tile>
+                      </mat-grid-list>
+                      
+                    </mat-card-content>
+                  </mat-card>
+                </mat-grid-tile>
+              </mat-grid-list>
+              <!-- END Términos y condiciones -->
+              <!-- Total a pagar-->
+              <mat-grid-list cols="3" rowHeight="200px" *ngIf="booleanPagar">
+                <mat-grid-tile colspan={{colspanThree}} rowspan=1>
+                  <mat-card class="dashboard-cardtwo">
+                    <mat-card-header>
+                      <mat-card-title>
+                        <mat-label>Total a pagar: $ {{ total }}</mat-label>
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <mat-grid-list cols="2" rowHeight="80px">
+                        <mat-grid-tile>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                          <form #authForm method="post" action="{{ urlTransbank }}" (ngSubmit)="authForm.submit()">
+                            <input type="hidden" name="token_ws" value="{{ tokenTransbank }}"/>
+                            <input type="submit" class="boton-pagar" value="Pagar"/>
+                          </form>
+                        </mat-grid-tile>
+                      </mat-grid-list>
+                    </mat-card-content>
+                  </mat-card>
+                </mat-grid-tile>
+              </mat-grid-list>
+              <!-- END Total a pagar-->
+
+              <!-- boton por pagar -->
+              <mat-grid-list cols="3" rowHeight="200px" *ngIf="booleanPorPagar">
+                <mat-grid-tile colspan={{colspanThree}} rowspan=1>
+                  <mat-card class="dashboard-cardtwo">
+                    <mat-card-header>
+                      <mat-card-title>
+                        <mat-label>Total a pagar: $ {{ total }}</mat-label>
+                      </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content class="dashboard-card-content">
+                      <mat-grid-list cols="2" rowHeight="80px">
+                        <mat-grid-tile>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                          <button mat-button (click)="savePagoPendiente()" class="button-nexttwo">Enviar</button>
+
+                        </mat-grid-tile>
+                      </mat-grid-list>
+                    </mat-card-content>
+                  </mat-card>
+                </mat-grid-tile>
+              </mat-grid-list>
+              <!-- END boton por pagar-->
+
+
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+
+        
+    
+      </mat-grid-list>
+    </mat-step>
+  </mat-stepper>
+
+
+
+
+
+
+
+
+
+
+
+ 
+</div>
+
+
+
+
+
+
+
+
+
+
+  
+  
+   

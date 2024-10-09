@@ -1,0 +1,72 @@
+.tracking-container {
+    width: 100%;
+    margin: 20px;
+  }
+
+  .tex-color{
+    color: #e94d1a;
+  }
+  
+  mat-horizontal-stepper {
+    width: 100%;
+  }
+  
+  h3 {
+    margin: 0;
+    font-weight: normal;
+  }
+
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 180px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    max-width: 100%;
+  }
+  
+  .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 180px;
+  }
+
+  
+
+   .green {
+    background-color: green;
+  }
+
+  .red {
+    background-color: "";
+  }
+
+  :host { 
+    .mat-icon {
+        width: 28px;
+        height: 32px;
+        font-size: 28px;
+   }
+ }
+
+ .button-pagar{
+    background-color: #e94d1a;
+    color: white; 
+   }
