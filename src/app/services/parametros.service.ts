@@ -14,7 +14,6 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 
     private URL_COMUNAS: string;
     
-
     public valorIva = 19;
     public valorNeto = 2353;
     public valorIvaResult = Math.round((this.valorNeto * this.valorIva /100));
