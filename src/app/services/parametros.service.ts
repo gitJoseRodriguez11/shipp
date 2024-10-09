@@ -9,8 +9,8 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   })
   export class ParametrosService {
 
-    public apiRoot = 'http://localhost:5000';
-    // public apiRoot = 'https://api.shipments.cl';
+    // public apiRoot = 'http://localhost:5000';
+    public apiRoot = 'https://api.shipments.cl';
 
     private URL_COMUNAS: string;
     
